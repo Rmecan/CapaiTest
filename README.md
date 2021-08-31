@@ -13,9 +13,9 @@
 [ジャンクションボックス](https://www.cap-ai.jp/products/controller/rs232c/rs232c_2.html)<br>
 ↓見たことないケーブル<br>
 [ダクトエンド](https://www.cap-ai.jp/products/other-machine/construction/construction_4.html)<br>
-↓ダクトエンドをダクトベース直接はめ込む<br>
+↓ダクトエンドをダクトベースに直接はめ込む<br>
 [ダクトベース](https://www.cap-ai.jp/products/other-machine/construction/construction_1.html)<br>
-↓アンサーキットをダクトベース直接はめ込む<br>
+↓アンサーキットをダクトベースに直接はめ込む<br>
 [アンサーキット](https://www.cap-ai.jp/products/answerkit/steelrack/)<br>
 
 # How to compile
