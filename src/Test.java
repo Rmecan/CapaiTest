@@ -7,25 +7,41 @@ import java.io.OutputStream;
 import java.util.Optional;
 
 class Test {
+    static final String DEFAULT_COM_PORT = "COM1";
+    static final String DEFAULT_TARGET_ADDRESS = "0001";
+    static final String DEFAULT_DISP_DATA = "12345";
+
     public static void main(String[] arg) {
-        String targetComPort = "COM1";
-        if (arg != null && arg.length > 0){
-            targetComPort = arg[0];
+        String targetComPort = DEFAULT_COM_PORT;
+        String targetAddress = DEFAULT_TARGET_ADDRESS;
+        String dispData = DEFAULT_DISP_DATA;
+        if (arg != null){
+            if (arg.length > 0){
+                targetComPort = arg[0];
+            }
+            if (arg.length > 1){
+                targetAddress = arg[1];
+            }
+            if (arg.length > 2){
+                dispData = arg[2];
+            }
         }
 
         outputLog("/_/_/_/_/_/_/_/_/_/_/_/_");
         outputLog(targetComPort + "のテスト");
-        outputLog("アドレス0001に12345を表示する");
+        outputLog("アドレス" + targetAddress + "に" + dispData + "を表示する");
         outputLog("/_/_/_/_/_/_/_/_/_/_/_/_");
 
-        new Test().doStart(targetComPort);
+        new Test().doStart(targetComPort, targetAddress, dispData);
     }
 
     /**
      * テスト開始
      * @param targetComPort COMポート
+     * @param targetAddress アンサーキットのアドレス
+     * @param dispData アンサーキットに表示するデータ
      */
-    void doStart(String targetComPort) {
+    void doStart(String targetComPort, String targetAddress, String dispData) {
         SerialPort serialport = null;
         try {
             serialport = openComPort(targetComPort);
@@ -45,9 +61,7 @@ class Test {
                 // テストデータ送信
                 outputLog("テストデータ送信を試みる");
                 String command = "P2";
-                String address = "0001";
-                String display = "12345";
-                String message = command + address + display;
+                String message = command + targetAddress + dispData;
                 send(out, message);
             }
         } catch (Exception e) {
