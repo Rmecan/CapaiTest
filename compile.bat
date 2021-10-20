@@ -4,17 +4,17 @@
 
 
 rem =========
-rem ŠÂ‹«•Ï”‚ÌƒZƒbƒg
+rem ç’°å¢ƒå¤‰æ•°ã®ã‚»ãƒƒãƒˆ
 rem =========
-set CLASSPATH=./lib/RXTXcomm.jar;
+set CLASSPATH=./src/RXTXcomm.jar;
 
 rem =========
-rem javaÀs
+rem javaå®Ÿè¡Œ
 rem =========
 if not exist ".\classes" mkdir ".\classes"
-copy /Y ".\lib\*.dll" ".\classes"
-copy /Y ".\lib\*.jar" ".\classes"
-javac -cp "%CLASSPATH%" -d "./classes" -encoding utf8 "./src/Test.java"
+copy /Y ".\src\*.dll" ".\classes"
+copy /Y ".\src\*.jar" ".\classes"
+javac -cp "%CLASSPATH%" -d "./classes" -encoding sjis "./src/Test.java"
 if %errorlevel% neq 0 pause
 
 @endlocal
